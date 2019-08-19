@@ -1,28 +1,26 @@
 package by.bsu.domino.dao;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MySQLConnector {
+    private final static String DRIVER = "com.mysql.cj.jdbc.Driver";
     private final static String LOGIN = "root";
-    private final static String PASSWORD = "PaVeL01111999";
+    private final static String PASSWORD = "vladvol";
     private final static String ADDRESS = "jdbc:mysql://localhost";
-    private final static String DB_NAME = "dominoproject";
-    private final static String DEFAULT_TIMEZONE = "Europe/Moscow";
+    private final static String DB_NAME = "domino";
 
     public static Connection getConnection() {
         Connection connection = null;
 
         //Connection without pool
-        String url = ADDRESS + "/" + DB_NAME + "?serverTimezone=" + DEFAULT_TIMEZONE + "&useSSL=false";
+        String url = ADDRESS + "/" + DB_NAME;
+
         try {
+            Class.forName(DRIVER);
             connection = DriverManager.getConnection(url, LOGIN, PASSWORD);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         /*
