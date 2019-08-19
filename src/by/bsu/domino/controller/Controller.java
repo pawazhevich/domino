@@ -1,6 +1,7 @@
 package by.bsu.domino.controller;
 
 import by.bsu.domino.command.ICommand;
+import by.bsu.domino.entity.User;
 import by.bsu.domino.util.CommandDefiner;
 
 import javax.servlet.RequestDispatcher;
@@ -19,6 +20,7 @@ public class Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("GET METHOD");
         this.processRequest(req, resp);
     }
 

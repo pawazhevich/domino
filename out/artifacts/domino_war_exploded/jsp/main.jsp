@@ -12,5 +12,12 @@
 </head>
 <body>
     ${login}, Hello!
+    <div class="game_field">
+        ТУТ БУДЕТ ИГРА
+    </div>
+<form name="logout" action="controller" method="post">
+    <input type="hidden" name="command" value="logout"/>
+    <button type="submit" value="logout">Log out</button>
+</form>
 </body>
 </html>

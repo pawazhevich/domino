@@ -8,7 +8,7 @@ public class LogoutCommand implements ICommand {
 
     @Override
     public String execute(HttpServletRequest req) {
-        req.getSession().removeAttribute("user");
+        req.getSession().invalidate();
         return PagePath.LOGIN;
     }
 }
