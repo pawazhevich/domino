@@ -10,7 +10,7 @@ public class MySQLConnector {
     private final static String PASSWORD = "vladvol";
     private final static String ADDRESS = "jdbc:mysql://localhost";
     private final static String DB_NAME = "domino";
-    // asdf
+
     public static Connection getConnection() {
         Connection connection = null;
 
