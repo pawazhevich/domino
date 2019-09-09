@@ -21,7 +21,9 @@ public class LoginCommand implements ICommand {
             req.setAttribute("loginError", "Неверный логин и/или пароль");
             return PagePath.LOGIN;
         } else {
-            req.getSession().setAttribute("user", optionalUser.get());
+            User user = optionalUser.get();
+            req.getSession().setAttribute("user", user);
+            req.setAttribute("userId",user.getId());
         }
 
         return PagePath.MAIN;

@@ -20,6 +20,7 @@
     </form>
     <div class="error_alert">
         ${loginError}
+        param: ${testParam}
     </div>
 </body>
 </html>

@@ -11,13 +11,26 @@
     <title>Main Page</title>
 </head>
 <body>
-    ${login}, Hello!
-    <div class="game_field">
-        ТУТ БУДЕТ ИГРА
+    <div class="helloDiv">
+        ${login}, Hello!
     </div>
-<form name="logout" action="controller" method="post">
-    <input type="hidden" name="command" value="logout"/>
-    <button type="submit" value="logout">Log out</button>
-</form>
+    <button id="findGameButton">
+        find game
+    </button>
+<script>
+    let button = document.getElementById("findGameButton");
+    button.addEventListener("click", (event)=>{
+        //todo fix path /domino_war_exploded
+        let socket = new WebSocket("ws://localhost:8080/domino_war_exploded/dominoGame/${userId}");
+
+        socket.onopen = ()=>{
+          console.log("Socket opened");
+        };
+
+        socket.onmessage = (event)=>{
+            console.log(event.data);
+        };
+    });
+</script>
 </body>
 </html>
